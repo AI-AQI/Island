@@ -1,0 +1,23 @@
+# Blender backups and autosaves
+*.blend1
+*.blend2
+*.blend@
+
+# Python bytecode and local environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# JavaScript dependencies
+node_modules/
+
+# IDE/editor-local settings
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS and local runtime files
+.DS_Store
+*.log

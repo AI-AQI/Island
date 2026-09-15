@@ -1,0 +1,64 @@
+{
+  "triangles": 290259,
+  "asset_variants": 35,
+  "instances": {
+    "island_base": 1,
+    "house_main": 1,
+    "cafe_pavilion": 1,
+    "stone_bridge": 1,
+    "farm_soil": 3,
+    "crop_pumpkin": 2,
+    "farm_fence": 26,
+    "crop_generic_leaf": 2,
+    "crop_generic_radish": 2,
+    "scarecrow": 1,
+    "sheep": 3,
+    "tree_large_green": 3,
+    "tree_large_gold": 3,
+    "tree_blossom": 1,
+    "stone_path_3": 55,
+    "stone_path_1": 52,
+    "stone_path_2": 41,
+    "rock_deco_3": 32,
+    "bush_flower_white": 38,
+    "rock_deco_2": 20,
+    "bush_flower_yellow": 26,
+    "bush_flower_pink": 34,
+    "vine_hanging": 37,
+    "flower_pot_2": 8,
+    "flower_pot_1": 3,
+    "ivy_wall": 5,
+    "sunflower": 4,
+    "lamp_post": 7,
+    "lantern_stone": 3,
+    "player_ref": 1,
+    "hanging_boat": 1,
+    "cloud_puff_1": 5,
+    "cloud_puff_2": 5,
+    "cloud_puff_3": 4,
+    "distant_island": 2
+  },
+  "triangle_budget": 600000,
+  "texture_size_max": 0,
+  "coordinate_system": "Blender Z-up, -Y forward; glTF standard Y-up export",
+  "bridge": {
+    "center": [
+      1.1760342648137827,
+      -5.2,
+      10.209654881830696
+    ],
+    "span_m": 6.8,
+    "water_level_m": 9.98,
+    "end_deck_level_m": 10.679654881830697
+  },
+  "tripo": {
+    "status": "device_authorization_service_unreachable",
+    "credits_consumed": 0
+  },
+  "render": [
+    2048,
+    1152
+  ],
+  "glb_bytes": 11409232,
+  "budget_pass": true
+}
