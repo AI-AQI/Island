@@ -21,3 +21,7 @@ node_modules/
 # OS and local runtime files
 .DS_Store
 *.log
+
+# Duplicate root-level source/reference imports
+/ChatGPT Image *.png
+/悬浮小岛建模需求文档（黄昏版）.md

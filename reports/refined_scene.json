@@ -1,0 +1,106 @@
+{
+  "revision": "reference_refinement_v2",
+  "triangles": 963014,
+  "mesh_objects": 544,
+  "unique_meshes": 67,
+  "material_textures": 18,
+  "material_texture_size": 256,
+  "sky_backdrop": "assets/textures/dusk_cloudscape.png",
+  "sky_is_2d": true,
+  "render": [
+    2048,
+    1536
+  ],
+  "camera_position": [
+    23,
+    -67,
+    53
+  ],
+  "camera_target": [
+    0,
+    0,
+    8.3
+  ],
+  "ortho_scale": 54.20000076293945,
+  "changed_assets": [
+    "house_main",
+    "tree_large_green",
+    "tree_large_gold",
+    "vine_hanging",
+    "bush_flower_white",
+    "bush_flower_pink",
+    "bush_flower_yellow",
+    "rock_deco_1",
+    "rock_deco_2",
+    "rock_deco_3",
+    "cafe_pavilion"
+  ],
+  "pixel_identical": false,
+  "source": "island_dusk.blend",
+  "largest_meshes": [
+    {
+      "name": "island_base_001",
+      "triangles": 73036
+    },
+    {
+      "name": "house_main_001",
+      "triangles": 32228
+    },
+    {
+      "name": "waterfall_spray",
+      "triangles": 25812
+    },
+    {
+      "name": "flowing_ripples_and_eddies",
+      "triangles": 23760
+    },
+    {
+      "name": "rim_leaf_mounds",
+      "triangles": 23760
+    },
+    {
+      "name": "tree_large_green_001",
+      "triangles": 23276
+    },
+    {
+      "name": "tree_large_gold_001",
+      "triangles": 23276
+    },
+    {
+      "name": "tree_large_green_002",
+      "triangles": 23276
+    },
+    {
+      "name": "tree_large_gold_002",
+      "triangles": 23276
+    },
+    {
+      "name": "tree_large_green_003",
+      "triangles": 23276
+    },
+    {
+      "name": "tree_large_gold_003",
+      "triangles": 23276
+    },
+    {
+      "name": "cafe_pavilion_001",
+      "triangles": 18372
+    },
+    {
+      "name": "foxgloves_and_lavender",
+      "triangles": 11664
+    },
+    {
+      "name": "exposed_twisting_roots",
+      "triangles": 7680
+    },
+    {
+      "name": "rim_boulders",
+      "triangles": 6502
+    }
+  ],
+  "web_triangles": 568866,
+  "glb_bytes": 24003460,
+  "original_budget_pass": true,
+  "web_packing": "8-bit normalized normals; unused UVs removed; positions and topology unchanged"
+}

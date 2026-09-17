@@ -1,0 +1,40 @@
+{
+  "revision": "reference_refinement_v2",
+  "triangles": 921816,
+  "mesh_objects": 542,
+  "unique_meshes": 65,
+  "material_textures": 18,
+  "material_texture_size": 256,
+  "sky_backdrop": "assets/textures/dusk_cloudscape.png",
+  "sky_is_2d": true,
+  "render": [
+    1100,
+    825
+  ],
+  "camera_position": [
+    23.0,
+    -67.0,
+    53.0
+  ],
+  "camera_target": [
+    0,
+    0,
+    9
+  ],
+  "ortho_scale": 52.79999923706055,
+  "changed_assets": [
+    "house_main",
+    "tree_large_green",
+    "tree_large_gold",
+    "vine_hanging",
+    "bush_flower_white",
+    "bush_flower_pink",
+    "bush_flower_yellow",
+    "rock_deco_1",
+    "rock_deco_2",
+    "rock_deco_3",
+    "cafe_pavilion"
+  ],
+  "pixel_identical": false,
+  "source": "island_dusk.blend"
+}
