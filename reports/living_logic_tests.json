@@ -1,0 +1,9 @@
+{
+  "passed": 4,
+  "tests": [
+    "Complete plant/water/grow/harvest/order loop; no premature or duplicate harvest",
+    "Saved crops and inventory restore; invalid storage recovers safely",
+    "Every crop and cafe reachable; entire path and swept movement stay walkable",
+    "River and buildings block movement; bridge is the river crossing"
+  ]
+}

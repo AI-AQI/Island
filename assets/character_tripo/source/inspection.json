@@ -1,0 +1,41 @@
+{
+  "input": "assets/character_tripo/tripo-out/daisy-detailed-a7bd67e9/model.glb",
+  "mesh_objects": 1,
+  "triangles": 1894963,
+  "original_bounds": [
+    [
+      -0.16180163621902466,
+      -0.38758859038352966,
+      -0.48949530720710754
+    ],
+    [
+      0.16194704174995422,
+      0.38926032185554504,
+      0.48976677656173706
+    ]
+  ],
+  "textures": [
+    {
+      "name": "Color_a7bd67e9-c3c8-4ab2-a4cb-701c54a7c994",
+      "size": [
+        4096,
+        4096
+      ]
+    },
+    {
+      "name": "NormalGL_a7bd67e9-c3c8-4ab2-a4cb-701c54a7c994",
+      "size": [
+        4096,
+        4096
+      ]
+    },
+    {
+      "name": "ORM_a7bd67e9-c3c8-4ab2-a4cb-701c54a7c994",
+      "size": [
+        4096,
+        4096
+      ]
+    }
+  ],
+  "bones": {}
+}

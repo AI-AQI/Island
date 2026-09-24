@@ -1,0 +1,11 @@
+{
+  "passed": 6,
+  "tests": [
+    "Reference districts retain building scale and surround an open central common",
+    "Narrow upper-left inlet meanders horizontally and widens toward the lower-right outlet",
+    "Every life site and crop is reachable by continuous movement; cross-bank routes use the rotated bridge",
+    "Day and morning routines visit both banks, gardens and potting table without getting stuck",
+    "Rain reaches a real roof and night returns home; player handover preserves position",
+    "Layout migration rescues unsafe positions, runs once and preserves crops, money and inventory"
+  ]
+}

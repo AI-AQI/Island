@@ -1,0 +1,8 @@
+{
+  "passed": 3,
+  "tests": [
+    "Accepted buildings, terrain, trees, bridge route and living sites are preserved",
+    "Exported stone bridge deck matches walking height across both lanes and crown",
+    "River exports real shallow/deep color variation and a continuous waterfall lip"
+  ]
+}

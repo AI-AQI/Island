@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>雏菊 · 人物工作室</title>
+  <script type="importmap">{"imports":{"three":"./vendor/three/build/three.module.js","three/addons/":"./vendor/three/examples/jsm/"}}</script>
+  <link rel="stylesheet" href="./character.css">
+</head>
+<body>
+  <header><a href="./">← 回到小岛</a><span>ISLAND ATELIER / 01</span></header>
+  <main>
+    <section class="stage" aria-label="可旋转人物模型"><canvas id="character-canvas" aria-label="拖动旋转人物，滚轮缩放" tabindex="0"></canvas><div id="load-status" role="status">正在打开人物工作室…</div><div class="stage-caption"><span id="current-pose">轻轻呼吸</span><span>拖动旋转 · 滚轮靠近</span></div></section>
+    <aside>
+      <p class="eyebrow">云上居民</p><h1>雏菊</h1><p class="intro">把田野里的小花，<br>缝进每天的日常。</p>
+      <nav class="model-versions" aria-label="人物版本"><a href="?model=tripo" data-model="tripo">精细版</a><a href="?model=local" data-model="local">初版对照</a></nav>
+      <div class="camera-buttons" role="group" aria-label="观察角度"><button data-camera="full" aria-pressed="true">全身</button><button data-camera="face" aria-pressed="false">面部</button><button data-camera="back" aria-pressed="false">背面</button></div>
+      <p class="label">看看她的动作</p><div class="motion-buttons" role="group" aria-label="人物动作"><button data-clip="Idle" aria-pressed="true">待机</button><button data-clip="Walk" aria-pressed="false">行走</button><button data-clip="Plant" aria-pressed="false">播种</button><button data-clip="Water" aria-pressed="false">浇水</button><button data-clip="Harvest" aria-pressed="false">收获</button></div>
+      <div class="playback"><button id="pause-character" aria-pressed="false">暂停动作</button><label>速度 <select id="speed" aria-label="动作播放速度"><option value=".5">0.5 ×</option><option value="1" selected>1 ×</option><option value="1.5">1.5 ×</option></select></label></div>
+      <details><summary>原画与造型细节</summary><a href="../reference/character/original.png" target="_blank" rel="noopener"><img src="../reference/character/original.png" alt="用户提供的草帽、长卷发、绿色刺绣裙女孩参考图"></a><p id="version-description">依据参考图生成精细造型，在本地 Blender 调整骨骼、裙摆和发束权重，并接入小岛动作。</p></details>
+      <a class="island-link" href="./">带她去岛上走走 ↗</a>
+    </aside>
+  </main>
+  <script type="module" src="./character-studio.js"></script>
+</body></html>

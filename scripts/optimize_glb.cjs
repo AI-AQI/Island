@@ -3,7 +3,7 @@
 const fs=require('fs');
 const path=require('path');
 
-function optimize(filename){
+function optimize(filename,{preserveNormalMaps=false}={}){
   const input=fs.readFileSync(filename);
   if(input.readUInt32LE(0)!==0x46546c67)throw new Error('Expected a GLB file');
   const jsonLength=input.readUInt32LE(12);
@@ -11,15 +11,17 @@ function optimize(filename){
   if(gltf.animations?.length||gltf.skins?.length||gltf.buffers.length!==1)throw new Error('This packer only accepts the static single-buffer scene');
   const binary=input.subarray(28+jsonLength);
   const oldViews=gltf.bufferViews,oldAccessors=gltf.accessors;
-  const used=new Set(),normals=new Set();
+  const used=new Set(),normals=new Set(),tangentNormals=new Map();
   // Blender's scalar bump node is not a tangent-space normal map.
-  for(const mat of gltf.materials??[])delete mat.normalTexture;
+  if(!preserveNormalMaps)for(const mat of gltf.materials??[])delete mat.normalTexture;
   for(const mesh of gltf.meshes)for(const prim of mesh.primitives){
     const mat=gltf.materials[prim.material];
-    const textured=mat?.pbrMetallicRoughness?.baseColorTexture||mat?.pbrMetallicRoughness?.metallicRoughnessTexture||mat?.emissiveTexture||mat?.occlusionTexture;
+    const textured=mat?.pbrMetallicRoughness?.baseColorTexture||mat?.pbrMetallicRoughness?.metallicRoughnessTexture||mat?.emissiveTexture||mat?.occlusionTexture||mat?.normalTexture;
     if(!textured)for(const key of Object.keys(prim.attributes))if(key.startsWith('TEXCOORD_'))delete prim.attributes[key];
+    if(!mat?.normalTexture)delete prim.attributes.TANGENT;
     for(const a of Object.values(prim.attributes))used.add(a);
     used.add(prim.indices);normals.add(prim.attributes.NORMAL);
+    if(prim.attributes.TANGENT!==undefined)tangentNormals.set(prim.attributes.TANGENT,prim.attributes.NORMAL);
   }
   const chunks=[],views=[],accessors=[],viewMap=new Map(),accessorMap=new Map();let offset=0;
   function append(data,metadata={}){
@@ -40,6 +42,22 @@ function optimize(filename){
         for(let k=0;k<3;k++)data.writeInt8(Math.round(Math.max(-1,Math.min(1,xyz[k]/length))*127),i*4+k);
       }
       a.bufferView=append(data,{byteStride:4,target:34962});a.componentType=5120;a.normalized=true;a.byteOffset=0;delete a.min;delete a.max;
+    }else if(tangentNormals.has(index)&&a.componentType===5126){
+      const v=oldViews[a.bufferView],stride=v.byteStride??16,start=(v.byteOffset??0)+(a.byteOffset??0),data=Buffer.alloc(a.count*16);
+      const normal=oldAccessors[tangentNormals.get(index)],nv=oldViews[normal.bufferView],ns=nv.byteStride??12,nstart=(nv.byteOffset??0)+(normal.byteOffset??0);
+      for(let i=0;i<a.count;i++){
+        let t=[0,1,2].map(k=>binary.readFloatLE(start+i*stride+k*4));
+        // MikkTSpace can cancel a tangent on coincident, tiny beveled caps.
+        // Give those vertices an orthogonal basis instead of a zero vector.
+        if(Math.hypot(...t)<1e-8){
+          if(normal.componentType!==5126)throw new Error('Tangent repair requires source float normals');
+          const n=[0,1,2].map(k=>binary.readFloatLE(nstart+i*ns+k*4)),axis=Math.abs(n[0])<.9?[1,0,0]:[0,1,0],dot=n.reduce((s,x,k)=>s+x*axis[k],0);
+          t=axis.map((x,k)=>x-n[k]*dot);
+        }
+        const len=Math.hypot(...t);for(let k=0;k<3;k++)data.writeFloatLE(t[k]/len,i*16+k*4);
+        data.writeFloatLE(binary.readFloatLE(start+i*stride+12)<0?-1:1,i*16+12);
+      }
+      a.bufferView=append(data,{target:34962});a.byteOffset=0;delete a.min;delete a.max;
     }else a.bufferView=copyView(a.bufferView);
     accessorMap.set(index,accessors.length);accessors.push(a);
   }

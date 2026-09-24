@@ -1,0 +1,34 @@
+{
+  "date": "2026-09-17",
+  "reference": "reference/character/front_t_pose.png",
+  "reference_sha256": "a27ed61a31f4df72ec64b5ea73d952cc8660e77907540304e57b86ab18cce7ab",
+  "model_version": "v3.1-20260211",
+  "geometry_quality": "detailed",
+  "texture_quality": "detailed",
+  "model_seed": 9172026,
+  "tasks": [
+    {
+      "task_id": "a7bd67e9-c3c8-4ab2-a4cb-701c54a7c994",
+      "type": "image_to_model",
+      "status": "success",
+      "credits_consumed": 60
+    },
+    {
+      "task_id": "b684ae59-7992-4dda-8a8b-faae25914340",
+      "type": "animate_prerigcheck",
+      "status": "success",
+      "credits_consumed": 0
+    },
+    {
+      "task_id": "3dbebed3-0676-4779-9df7-e5fc50a89a0a",
+      "type": "animate_rig",
+      "status": "success",
+      "credits_consumed": 25
+    }
+  ],
+  "credits_total": 85,
+  "verified_remaining_balance": 515,
+  "frozen_credits": 0,
+  "local_processing": "Blender 5.2.1; no additional API generation or paid retarget",
+  "runtime_sha256": "31fa178d1b9fdc96af1e096325a925a89b9914b82ec9b542f44fb86589e62642"
+}

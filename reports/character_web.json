@@ -1,0 +1,14 @@
+{
+  "bytes": 11017912,
+  "triangles": 131121,
+  "bones": 27,
+  "clips": [
+    "Harvest",
+    "Idle",
+    "Plant",
+    "Walk",
+    "Water"
+  ],
+  "errors": 0,
+  "warnings": 0
+}

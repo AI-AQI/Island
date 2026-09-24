@@ -1,6 +1,6 @@
 # 黄昏云海背景
 
-`dusk_cloudscape.png` 由内置 image_gen 工具生成，仅包含天空与云层。主岛、建筑、植被和水体仍为可旋转的真实三维几何。Blender 主视角使用此图作为合成背景；网页使用同图作为背景。贴图随项目交付并打包进 refined Blender 文件。
+`dusk_cloudscape.png` 由内置 image_gen 工具生成，仅包含天空与云层。主岛、建筑、植被和水体仍为可旋转的真实三维几何。Blender 旧版主视角与静态查看器使用此图作为背景；当前动态小岛已改用 `viewer/world.js` 的实时天空与 `assets/world/cloud_bank.png` 云层。原贴图仍保留并打包在 refined Blender 文件中。
 
 ## 生成提示词
 

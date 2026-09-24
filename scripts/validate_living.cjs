@@ -1,0 +1,22 @@
+const fs = require('node:fs');
+const path = require('node:path');
+const assert = require('node:assert/strict');
+const root = path.resolve(__dirname, '..');
+const validator = require(process.env.GLTF_VALIDATOR_MODULE || 'gltf-validator');
+(async () => {
+  const bytes = fs.readFileSync(path.join(root, 'island_dusk_living.glb'));
+  const gltf = JSON.parse(bytes.toString('utf8', 20, 20 + bytes.readUInt32LE(12)));
+  const meta = JSON.parse(fs.readFileSync(path.join(root, 'assets/living/scene.json')));
+  const names = new Set(gltf.nodes.map(n => n.name));
+  for (const name of [...meta.independentNodes, 'island_scenery']) assert(names.has(name), `Missing independently controlled node: ${name}`);
+  assert(bytes.length < 25_000_000, 'Web model exceeds 25 MB');
+  const triangles = gltf.meshes.flatMap(m => m.primitives).reduce((n,p) => n + gltf.accessors[p.indices].count / 3, 0);
+  assert(triangles <= 600_000, 'Web model exceeds triangle budget');
+  assert.equal(triangles, meta.webTriangles);
+  const report = await validator.validateBytes(new Uint8Array(bytes), {maxIssues:100});
+  fs.writeFileSync(path.join(root, 'reports/living_gltf_validation.json'), JSON.stringify(report,null,2));
+  const summary = {bytes:bytes.length, triangles, independentNodes:meta.independentNodes.length, errors:report.issues.numErrors, warnings:report.issues.numWarnings};
+  fs.writeFileSync(path.join(root, 'reports/living_model.json'), JSON.stringify(summary,null,2));
+  console.log(JSON.stringify(summary,null,2));
+  if(summary.errors || summary.warnings) process.exitCode=1;
+})().catch(error => {console.error(error);process.exitCode=1;});

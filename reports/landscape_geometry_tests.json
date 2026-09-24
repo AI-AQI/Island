@@ -1,0 +1,8 @@
+{
+  "passed": 3,
+  "tests": [
+    "Blender and runtime share terrain heights, including elevated house, hills and shallows",
+    "Recovered pink tree and additional groves leave the central common open",
+    "Water descends from the spring; river samples follow its height and shoreline stays safe"
+  ]
+}

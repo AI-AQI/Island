@@ -1,0 +1,10 @@
+{
+  "passed": 5,
+  "tests": [
+    "One real 30-minute cycle advances exactly one day, including multiple midnight crossings",
+    "Paused time and invalid deltas do not advance the world",
+    "Independent world preferences restore and malformed storage recovers safely",
+    "Daylight is continuous across midnight and distinguishes midday, dusk and night",
+    "Weather changes gradually, remains bounded, and rain can fully clear"
+  ]
+}

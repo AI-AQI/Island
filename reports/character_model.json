@@ -1,0 +1,34 @@
+{
+  "method": "Local Blender only",
+  "source_reference": "reference/character/original.png",
+  "height": 1.87,
+  "mesh_objects": 15,
+  "bones": 27,
+  "source_triangles": 272170,
+  "web_triangles": 131121,
+  "clips": [
+    "Idle",
+    "Walk",
+    "Plant",
+    "Water",
+    "Harvest"
+  ],
+  "parts": [
+    "Face",
+    "Wavy_Hair",
+    "Woven_Straw_Hat",
+    "Linen_Blouse",
+    "Sage_Embroidered_Dress",
+    "Layered_Petticoat",
+    "Legs",
+    "Laced_Boots",
+    "Leather_Satchel",
+    "Satchel_Strap",
+    "Sleeve",
+    "Hand",
+    "Sleeve.001",
+    "Hand.001",
+    "Watering_Can"
+  ],
+  "pixel_identical": false
+}

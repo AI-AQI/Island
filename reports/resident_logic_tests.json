@@ -1,0 +1,12 @@
+{
+  "passed": 7,
+  "tests": [
+    "Expanded terrain grows 76.64% while house/cafe bounds retain their physical dimensions",
+    "All daily-life, crop and cafe destinations connect without crossing buildings, water or furniture",
+    "Daytime resident completes multiple activities and reaches both banks",
+    "Morning includes potting work; night settles at home without repeated wandering",
+    "Rain interrupts a trip, reaches a real roof, waits and resumes when clear",
+    "Pause and player handover preserve position, then replan from the player destination",
+    "Old save migration transforms position once and preserves inventory, crops and orders"
+  ]
+}
